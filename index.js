@@ -1,9 +1,12 @@
 const Joi = require("joi-browser")
+const authenticate = require("./auth")
+const logger = require("./logger")
 const express = require("express")
 const app = express()
 
 app.use(express.json())
-
+app.use(logger)
+app.use(authenticate)
 
 const courses = [
   { id: 1, name: "course" },
